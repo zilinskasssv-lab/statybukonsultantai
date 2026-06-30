@@ -5,6 +5,7 @@ import { useState } from 'react'
 export default function Home() {
   const [forma, setForma] = useState({ vardas: '', pavarde: '', email: '', telefonas: '', zinute: '' })
   const [busena, setBusena] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [meniuAtidarytas, setMeniuAtidarytas] = useState(false)
 
   const siusti = async () => {
     setBusena('sending')
@@ -23,15 +24,54 @@ export default function Home() {
 
   return (
     <main>
-      <nav style={{ background: '#1C3A2F', padding: '8px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', position: 'sticky', top: 0, zIndex: 100 }}>
+      <style>{`
+        .nav-links { display: flex; gap: 24px; flex: 1; justify-content: center; }
+        .nav-right-tel { display: flex; }
+        .hamburger { display: none; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 420px; }
+        .services-primary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+        .services-secondary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 900px; margin: 0 auto; }
+        .trust-bar-row { display: flex; align-items: center; }
+        .hero-title { font-size: 36px; }
+        .section-title { font-size: 32px; }
+
+        @media (max-width: 860px) {
+          .nav-links { display: none; }
+          .nav-right-tel { display: none; }
+          .hamburger { display: flex !important; }
+          .hero-grid { grid-template-columns: 1fr; }
+          .hero-image-box { min-height: 240px; order: -1; }
+          .hero-title { font-size: 28px; }
+          .services-primary { grid-template-columns: 1fr; }
+          .services-secondary { grid-template-columns: 1fr; }
+          .portfolio-grid { grid-template-columns: 1fr; }
+          .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+          .trust-bar-row { flex-direction: column; gap: 10px; padding: 16px !important; }
+          .trust-bar-row > div { border-right: none !important; padding: 4px 0 !important; }
+          .section-title { font-size: 24px; }
+          .nav-wrap { padding: 10px 16px !important; }
+          .section-pad { padding: 40px 20px !important; }
+          .hero-pad { padding: 32px 24px !important; }
+        }
+
+        @media (max-width: 600px) {
+          .hero-proof-row { flex-wrap: wrap; gap: 16px !important; }
+          .hero-proof-row > div { border-right: none !important; margin-right: 0 !important; padding-right: 0 !important; }
+        }
+      `}</style>
+
+      <nav className="nav-wrap" style={{ background: '#1C3A2F', padding: '8px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', position: 'sticky', top: 0, zIndex: 100 }}>
         <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0, textDecoration: 'none' }}>
-          <img src="/logo_icon.png" alt="logo" style={{ height: '48px', width: 'auto', filter: 'brightness(0) invert(1)' }} />
+          <img src="/logo_icon.png" alt="logo" style={{ height: '40px', width: 'auto', filter: 'brightness(0) invert(1)' }} />
           <div>
             <div style={{ fontSize: '13px', fontWeight: 600, color: '#fff', whiteSpace: 'nowrap' }}>Statybų konsultantai</div>
             <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.45)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Statybų valdymas</div>
           </div>
         </a>
-        <div style={{ display: 'flex', gap: '24px', flex: 1, justifyContent: 'center' }}>
+
+        <div className="nav-links">
           {[
             { label: 'Paslaugos', href: '/#paslaugos' },
             { label: 'Projektai', href: '/#projektai' },
@@ -42,22 +82,45 @@ export default function Home() {
             <a key={item.label} href={item.href} style={{ fontSize: '13px', color: 'rgba(255,255,255,0.65)', textDecoration: 'none', whiteSpace: 'nowrap' }}>{item.label}</a>
           ))}
         </div>
+
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
-          <a href="tel:+37063879755" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.75)', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.06)', border: '0.5px solid rgba(255,255,255,0.12)', borderRadius: '6px', padding: '6px 12px', textDecoration: 'none', whiteSpace: 'nowrap' }}>
+          <a href="tel:+37063879755" className="nav-right-tel" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.75)', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.06)', border: '0.5px solid rgba(255,255,255,0.12)', borderRadius: '6px', padding: '6px 12px', textDecoration: 'none', whiteSpace: 'nowrap' }}>
             📞 +370 638 79755
           </a>
-          <a href="/#kontaktai" style={{ background: '#E8A020', color: '#1C3A2F', padding: '8px 16px', borderRadius: '6px', fontSize: '13px', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+          <a href="/#kontaktai" style={{ background: '#E8A020', color: '#1C3A2F', padding: '8px 14px', borderRadius: '6px', fontSize: '12px', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>
             Gauti pasiūlymą
           </a>
+          <button
+            className="hamburger"
+            onClick={() => setMeniuAtidarytas(!meniuAtidarytas)}
+            style={{ background: 'transparent', border: 'none', color: '#fff', fontSize: '24px', cursor: 'pointer', padding: '4px 8px' }}
+          >
+            {meniuAtidarytas ? '✕' : '☰'}
+          </button>
         </div>
       </nav>
 
-      <div style={{ background: '#1C3A2F', display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '420px' }}>
-        <div style={{ padding: '56px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '24px' }}>
+      {meniuAtidarytas && (
+        <div style={{ background: '#1C3A2F', padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: '4px', borderTop: '0.5px solid rgba(255,255,255,0.1)' }}>
+          {[
+            { label: 'Paslaugos', href: '/#paslaugos' },
+            { label: 'Projektai', href: '/#projektai' },
+            { label: 'Apie', href: '/apie' },
+            { label: 'Parduotuvė', href: '/parduotuve' },
+            { label: 'Kontaktai', href: '/#kontaktai' },
+          ].map(item => (
+            <a key={item.label} href={item.href} onClick={() => setMeniuAtidarytas(false)} style={{ fontSize: '14px', color: 'rgba(255,255,255,0.8)', textDecoration: 'none', padding: '10px 0', borderBottom: '0.5px solid rgba(255,255,255,0.08)' }}>{item.label}</a>
+          ))}
+          <a href="tel:+37063879755" style={{ fontSize: '14px', color: '#E8A020', textDecoration: 'none', padding: '10px 0' }}>📞 +370 638 79755</a>
+        </div>
+      )}
+
+      <div className="hero-grid" style={{ background: '#1C3A2F' }}>
+        <div className="hero-pad" style={{ padding: '56px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '24px' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(232,160,32,0.1)', border: '0.5px solid rgba(232,160,32,0.3)', borderRadius: '20px', padding: '5px 14px', width: 'fit-content' }}>
             <span style={{ fontSize: '11px', color: '#E8A020', fontWeight: 500 }}>✓ Licencijuoti statybų inžinieriai · Visoje Lietuvoje</span>
           </div>
-          <h1 style={{ fontSize: '36px', fontWeight: 600, color: '#fff', lineHeight: 1.2 }}>
+          <h1 className="hero-title" style={{ fontWeight: 600, color: '#fff', lineHeight: 1.2 }}>
             <span style={{ color: '#E8A020' }}>25 metų patirtis,</span><br />
             kuri apsaugo<br />
             jūsų investiciją
@@ -73,7 +136,7 @@ export default function Home() {
               📁 Peržiūrėti projektus
             </a>
           </div>
-          <div style={{ display: 'flex', gap: '0', paddingTop: '8px' }}>
+          <div className="hero-proof-row" style={{ display: 'flex', gap: '0', paddingTop: '8px' }}>
             {[
               { num: '120+', label: 'Įgyvendintų projektų' },
               { num: '25', label: 'Metų patirtis' },
@@ -86,7 +149,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="hero-image-box" style={{ position: 'relative', overflow: 'hidden' }}>
           <img src="/hero.jpg" alt="Daugiabučio gyvenamojo namo statyba" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(28,58,47,0.4) 0%, rgba(28,58,47,0) 30%)' }} />
           <div style={{ position: 'absolute', bottom: '20px', left: '16px', background: 'rgba(20,46,35,0.95)', border: '0.5px solid rgba(232,160,32,0.25)', borderRadius: '8px', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -99,7 +162,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div style={{ background: '#152d22', borderTop: '0.5px solid rgba(255,255,255,0.07)', padding: '14px 32px', display: 'flex', alignItems: 'center' }}>
+      <div className="trust-bar-row" style={{ background: '#152d22', borderTop: '0.5px solid rgba(255,255,255,0.07)', padding: '14px 32px' }}>
         {[
           '📋 Statinio statybos techninė priežiūra pagal STR',
           '🏠 Pastatų techninė priežiūra pagal STR 1.12.07:2010',
@@ -112,13 +175,13 @@ export default function Home() {
         ))}
       </div>
 
-      <section id="paslaugos" style={{ background: '#F5F2ED', padding: '64px 32px' }}>
+      <section id="paslaugos" className="section-pad" style={{ background: '#F5F2ED', padding: '64px 32px' }}>
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <div style={{ display: 'inline-block', background: 'rgba(28,58,47,0.1)', borderRadius: '20px', padding: '5px 16px', fontSize: '11px', color: '#1C3A2F', fontWeight: 500, marginBottom: '16px' }}>Mūsų paslaugos</div>
-          <h2 style={{ fontSize: '32px', fontWeight: 600, color: '#1A1A1A', lineHeight: 1.2, marginBottom: '12px' }}>Profesionali pagalba visuose<br />statybų etapuose</h2>
+          <h2 className="section-title" style={{ fontWeight: 600, color: '#1A1A1A', lineHeight: 1.2, marginBottom: '12px' }}>Profesionali pagalba visuose<br />statybų etapuose</h2>
           <p style={{ fontSize: '15px', color: '#666', maxWidth: '480px', margin: '0 auto', lineHeight: 1.6 }}>Nuo idėjos ir projekto iki darbų priėmimo ir defektų šalinimo – esame šalia kiekviename žingsnyje.</p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginBottom: '16px' }}>
+        <div className="services-primary">
           {[
             { icon: '👁', title: 'Statybų techninė priežiūra', desc: 'Kontroliuojame statybos procesą nuo pradžios iki pabaigos – fiksuojame defektus, tikriname medžiagas ir atstovaujame užsakovui.', features: ['Statybos darbų atitikties tikrinimas', 'Defektų fiksavimas ir šalinimo kontrolė', 'Terminų ir biudžeto priežiūra', 'Objekto priėmimas ir žurnalo pildymas'], price: '0,6% statybų vertės', priceNote: 'arba nuo 150 €/mėn.' },
             { icon: '📊', title: 'Projektų valdymas', desc: 'Pilnai valdome statybos projektą – koordinuojame rangovus, kontroliuojame biudžetą ir terminus.', features: ['Projekto grafikas (Gantt) ir atsakomybių matrica', 'Rangovų koordinavimas ir užduočių paskirstymas', 'Biudžeto kontrolė ir išlaidų ataskaitos', 'Reguliarūs progreso pranešimai užsakovui'], price: '2,5–4% projekto vertės', priceNote: '' },
@@ -145,7 +208,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
+        <div className="services-secondary">
           {[
             { icon: '🪖', title: 'Statinio statybos vadovas', desc: 'Valdome visą statybos procesą – nuo pamatų iki stogo.', price: '450 €/mėn.' },
             { icon: '💬', title: 'Konsultacija prieš statybą', desc: '60 min. profesionali konsultacija – veiksmų planas ir kainų orientyrai.', price: '59 € / 60 min.' },
@@ -172,13 +235,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projektai" style={{ background: '#fff', padding: '64px 32px' }}>
+      <section id="projektai" className="section-pad" style={{ background: '#fff', padding: '64px 32px' }}>
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <div style={{ display: 'inline-block', background: 'rgba(28,58,47,0.1)', borderRadius: '20px', padding: '5px 16px', fontSize: '11px', color: '#1C3A2F', fontWeight: 500, marginBottom: '16px' }}>Įgyvendinti projektai</div>
-          <h2 style={{ fontSize: '32px', fontWeight: 600, color: '#1A1A1A', lineHeight: 1.2, marginBottom: '12px' }}>Mūsų darbai kalba<br />patys už save</h2>
+          <h2 className="section-title" style={{ fontWeight: 600, color: '#1A1A1A', lineHeight: 1.2, marginBottom: '12px' }}>Mūsų darbai kalba<br />patys už save</h2>
           <p style={{ fontSize: '15px', color: '#666', maxWidth: '480px', margin: '0 auto', lineHeight: 1.6 }}>Kiekvienas projektas – tai atsakomybė prieš užsakovą.</p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
+        <div className="portfolio-grid">
           {[
             { img: '/portfolio/vilnius_namo_statybos_ranga.avif', tag: 'Statybos vadovavimas', title: 'Vienbučio gyvenamojo namo statybų valdymas', meta: ['Vilnius'] },
             { img: '/portfolio/masiulo_gelzbetonio_montavimo_ranga.avif', tag: 'Projektų valdymas', title: 'Daugiabučio gelžbetonio konstrukcijų montavimo darbų valdymas', meta: ['Kaunas, T. Masiulio g.'] },
@@ -203,8 +266,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section style={{ background: '#1C3A2F', padding: '64px 32px', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '32px', fontWeight: 600, color: '#fff', lineHeight: 1.25, marginBottom: '16px' }}>
+      <section className="section-pad" style={{ background: '#1C3A2F', padding: '64px 32px', textAlign: 'center' }}>
+        <h2 className="section-title" style={{ fontWeight: 600, color: '#fff', lineHeight: 1.25, marginBottom: '16px' }}>
           Pradėkite su nemokama<br />konsultacija
         </h2>
         <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.6)', maxWidth: '480px', margin: '0 auto 32px', lineHeight: 1.65 }}>
@@ -220,8 +283,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="kontaktai" style={{ background: '#F5F2ED', padding: '64px 32px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', maxWidth: '900px', margin: '0 auto' }}>
+      <section id="kontaktai" className="section-pad" style={{ background: '#F5F2ED', padding: '64px 32px' }}>
+        <div className="contact-grid">
           <div>
             <div style={{ display: 'inline-block', background: 'rgba(28,58,47,0.1)', borderRadius: '20px', padding: '5px 16px', fontSize: '11px', color: '#1C3A2F', fontWeight: 500, marginBottom: '16px' }}>Kontaktai</div>
             <h2 style={{ fontSize: '28px', fontWeight: 600, color: '#1A1A1A', lineHeight: 1.25, marginBottom: '24px' }}>Susisiekite su mumis</h2>
@@ -258,7 +321,7 @@ export default function Home() {
                     placeholder={f.placeholder}
                     value={forma[f.key as keyof typeof forma]}
                     onChange={e => setForma(prev => ({ ...prev, [f.key]: e.target.value }))}
-                    style={{ width: '100%', padding: '10px 14px', border: '1px solid rgba(0,0,0,0.12)', borderRadius: '7px', fontSize: '13px', background: '#fff', outline: 'none', color: '#1A1A1A' }}
+                    style={{ width: '100%', padding: '10px 14px', border: '1px solid rgba(0,0,0,0.12)', borderRadius: '7px', fontSize: '13px', background: '#fff', outline: 'none', color: '#1A1A1A', boxSizing: 'border-box' }}
                   />
                 </div>
               ))}
@@ -269,7 +332,7 @@ export default function Home() {
                   rows={4}
                   value={forma.zinute}
                   onChange={e => setForma(prev => ({ ...prev, zinute: e.target.value }))}
-                  style={{ width: '100%', padding: '10px 14px', border: '1px solid rgba(0,0,0,0.12)', borderRadius: '7px', fontSize: '13px', background: '#fff', outline: 'none', resize: 'vertical', color: '#1A1A1A', fontFamily: 'inherit' }}
+                  style={{ width: '100%', padding: '10px 14px', border: '1px solid rgba(0,0,0,0.12)', borderRadius: '7px', fontSize: '13px', background: '#fff', outline: 'none', resize: 'vertical', color: '#1A1A1A', fontFamily: 'inherit', boxSizing: 'border-box' }}
                 />
               </div>
               <button
