@@ -11,6 +11,7 @@ export default function Footer() {
           { label: 'Projektai', href: '/#projektai' },
           { label: 'Kontaktai', href: '/#kontaktai' },
           { label: 'Privatumo politika', href: '/privatumo-politika' },
+          { label: 'Grąžinimo politika', href: '/grazinimo-politika' },
         ].map(item => (
           <a key={item.label} href={item.href} style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>{item.label}</a>
         ))}
@@ -19,3 +20,4 @@ export default function Footer() {
     </footer>
   )
 }
+
