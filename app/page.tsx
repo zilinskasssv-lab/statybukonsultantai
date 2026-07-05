@@ -11,6 +11,41 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "MB Statybų konsultantai",
+            "image": "https://statybukonsultantai.lt/og-image.jpg",
+            "url": "https://statybukonsultantai.lt",
+            "telephone": "+37063879755",
+            "email": "info@statybukonsultantai.lt",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "T. Masiulio g. 11A",
+              "addressLocality": "Kaunas",
+              "addressCountry": "LT"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 54.9027,
+              "longitude": 23.9096
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "Lithuania"
+            },
+            "priceRange": "€€",
+            "description": "Licencijuoti statybų inžinieriai. Statinio statybos techninė priežiūra pagal STR, pastatų techninė priežiūra, statybos vadovas. 25 metų patirtis.",
+            "sameAs": [
+              "https://www.facebook.com/statybukonsultantai"
+            ]
+          })
+        }}
+      />
+
       <style>{`
         .hero-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 420px; }
         .services-primary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
