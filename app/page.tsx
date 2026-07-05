@@ -23,10 +23,11 @@ export default function Home() {
             "telephone": "+37063879755",
             "email": "info@statybukonsultantai.lt",
             "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "T. Masiulio g. 11A",
-              "addressLocality": "Kaunas",
-              "addressCountry": "LT"
+            "@type": "PostalAddress",
+            "streetAddress": "T. Masiulio g. 11A",
+            "addressLocality": "Kaunas",
+            "postalCode": "44300",
+            "addressCountry": "LT"
             },
             "geo": {
               "@type": "GeoCoordinates",
