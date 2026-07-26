@@ -29,6 +29,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     strong: ({ children }) => (
       <strong style={{ fontWeight: 600, color: '#1A1A1A' }}>{children}</strong>
     ),
+    em: ({ children }) => (
+      <em style={{ fontSize: '13px', color: '#888', fontStyle: 'normal', display: 'block', textAlign: 'center', marginTop: '-8px', marginBottom: '28px' }}>{children}</em>
+    ),
+    img: ({ src, alt }) => (
+      <img
+        src={src as string}
+        alt={alt as string}
+        loading="lazy"
+        style={{ width: '100%', height: 'auto', borderRadius: '10px', border: '0.5px solid rgba(0,0,0,0.08)', display: 'block', marginTop: '28px', marginBottom: '12px' }}
+      />
+    ),
     blockquote: ({ children }) => (
       <blockquote style={{ borderLeft: '3px solid #E8A020', paddingLeft: '20px', margin: '24px 0', fontStyle: 'italic', color: '#555' }}>{children}</blockquote>
     ),
