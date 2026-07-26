@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import ContactForm from './components/ContactForm'
+import Atsiliepimai from './components/Atsiliepimai'
 
 export const metadata: Metadata = {
   title: 'Statybų techninė priežiūra | MB Statybų konsultantai',
@@ -23,11 +24,11 @@ export default function Home() {
             "telephone": "+37063879755",
             "email": "info@statybukonsultantai.lt",
             "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "T. Masiulio g. 11A",
-            "addressLocality": "Kaunas",
-            "postalCode": "44300",
-            "addressCountry": "LT"
+              "@type": "PostalAddress",
+              "streetAddress": "T. Masiulio g. 11A",
+              "addressLocality": "Kaunas",
+              "postalCode": "44300",
+              "addressCountry": "LT"
             },
             "geo": {
               "@type": "GeoCoordinates",
@@ -139,7 +140,6 @@ export default function Home() {
           </div>
         ))}
       </div>
-
       <section id="paslaugos" className="section-pad" style={{ background: '#F5F2ED', padding: '64px 32px' }}>
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <div style={{ display: 'inline-block', background: 'rgba(28,58,47,0.1)', borderRadius: '20px', padding: '5px 16px', fontSize: '11px', color: '#1C3A2F', fontWeight: 500, marginBottom: '16px' }}>Mūsų paslaugos</div>
@@ -199,7 +199,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-
       <section id="projektai" className="section-pad" style={{ background: '#fff', padding: '64px 32px' }}>
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <div style={{ display: 'inline-block', background: 'rgba(28,58,47,0.1)', borderRadius: '20px', padding: '5px 16px', fontSize: '11px', color: '#1C3A2F', fontWeight: 500, marginBottom: '16px' }}>Įgyvendinti projektai</div>
@@ -231,6 +230,8 @@ export default function Home() {
         </div>
       </section>
 
+      <Atsiliepimai />
+
       <section className="section-pad" style={{ background: '#1C3A2F', padding: '64px 32px', textAlign: 'center' }}>
         <h2 className="section-title" style={{ fontWeight: 600, color: '#fff', lineHeight: 1.25, marginBottom: '16px' }}>
           Pradėkite su nemokama<br />konsultacija
@@ -247,7 +248,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-
       <section id="kontaktai" className="section-pad" style={{ background: '#F5F2ED', padding: '64px 32px' }}>
         <div className="contact-grid">
           <div>
