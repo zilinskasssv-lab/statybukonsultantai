@@ -5,8 +5,8 @@ import ContactForm from './components/ContactForm'
 import Atsiliepimai from './components/Atsiliepimai'
 
 export const metadata: Metadata = {
-  title: 'Statybų techninė priežiūra | MB Statybų konsultantai',
-  description: 'Licencijuoti statybų inžinieriai. Statinio statybos techninė priežiūra pagal STR, pastatų techninė priežiūra, statybos vadovas. 25 metų patirtis, darbas visoje Lietuvoje.',
+  title: 'MB Statybų konsultantai | Statybų priežiūra ir valdymas',
+  description: 'Licencijuoti statybų inžinieriai su 25 metų patirtimi. Techninė priežiūra, pastatų priežiūra, projektų valdymas ir statybos vadovo paslaugos visoje Lietuvoje.',
 }
 
 export default function Home() {
@@ -98,8 +98,8 @@ export default function Home() {
             <a href="/#kontaktai" style={{ background: '#E8A020', color: '#1C3A2F', padding: '13px 24px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>
               📅 Nemokama konsultacija
             </a>
-            <a href="/#projektai" style={{ background: '#fff', color: '#1C3A2F', padding: '13px 24px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>
-              📁 Peržiūrėti projektus
+            <a href="/statybu-konsultavimo-paslaugos" style={{ background: '#fff', color: '#1C3A2F', padding: '13px 24px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>
+              Mūsų paslaugos →
             </a>
           </div>
           <div className="hero-proof-row" style={{ display: 'flex', gap: '0', paddingTop: '8px' }}>
@@ -148,9 +148,9 @@ export default function Home() {
         </div>
         <div className="services-primary">
           {[
-            { icon: '👁', title: 'Statybų techninė priežiūra', desc: 'Kontroliuojame statybos procesą nuo pradžios iki pabaigos – fiksuojame defektus, tikriname medžiagas ir atstovaujame užsakovui.', features: ['Statybos darbų atitikties tikrinimas', 'Defektų fiksavimas ir šalinimo kontrolė', 'Terminų ir biudžeto priežiūra', 'Objekto priėmimas ir žurnalo pildymas'], price: '0,6% statybų vertės', priceNote: 'arba nuo 150 €/mėn.' },
-            { icon: '📊', title: 'Projektų valdymas', desc: 'Pilnai valdome statybos projektą – koordinuojame rangovus, kontroliuojame biudžetą ir terminus.', features: ['Projekto grafikas (Gantt) ir atsakomybių matrica', 'Rangovų koordinavimas ir užduočių paskirstymas', 'Biudžeto kontrolė ir išlaidų ataskaitos', 'Reguliarūs progreso pranešimai užsakovui'], price: '2,5–4% projekto vertės', priceNote: '' },
-            { icon: '🏢', title: 'Pastatų techninė priežiūra', desc: 'Atliekame pastatų techninę priežiūrą pagal STR 1.12.07:2010 – užtikriname saugią ir ekonomišką eksploataciją.', features: ['Kasmetinės ir sezoninės pastato apžiūros', 'Defektų fiksavimas ir šalinimo rekomendacijos', 'Pastato techninės būklės vertinimo aktas', 'Periodinių tikrinimų grafikas ir dokumentacija'], price: '120 €/metus', priceNote: 'arba 0,2–0,5% pastato vertės' },
+            { icon: '👁', href: '/statybu-technine-prieziura', title: 'Statybų techninė priežiūra', desc: 'Kontroliuojame statybos procesą nuo pradžios iki pabaigos – fiksuojame defektus, tikriname medžiagas ir atstovaujame užsakovui.', features: ['Statybos darbų atitikties tikrinimas', 'Defektų fiksavimas ir šalinimo kontrolė', 'Terminų ir biudžeto priežiūra', 'Objekto priėmimas ir žurnalo pildymas'], price: '0,6% statybų vertės', priceNote: 'arba nuo 150 €/mėn.' },
+            { icon: '📊', href: '/statybu-konsultavimo-paslaugos', title: 'Projektų valdymas', desc: 'Pilnai valdome statybos projektą – koordinuojame rangovus, kontroliuojame biudžetą ir terminus.', features: ['Projekto grafikas (Gantt) ir atsakomybių matrica', 'Rangovų koordinavimas ir užduočių paskirstymas', 'Biudžeto kontrolė ir išlaidų ataskaitos', 'Reguliarūs progreso pranešimai užsakovui'], price: '2,5–4% projekto vertės', priceNote: '' },
+            { icon: '🏢', href: '/pastatu-technine-prieziura', title: 'Pastatų techninė priežiūra', desc: 'Atliekame pastatų techninę priežiūrą pagal STR 1.12.07:2010 – užtikriname saugią ir ekonomišką eksploataciją.', features: ['Kasmetinės ir sezoninės pastato apžiūros', 'Defektų fiksavimas ir šalinimo rekomendacijos', 'Pastato techninės būklės vertinimo aktas', 'Periodinių tikrinimų grafikas ir dokumentacija'], price: '120 €/metus', priceNote: 'arba 0,2–0,5% pastato vertės' },
           ].map((s, i) => (
             <div key={i} style={{ background: '#1C3A2F', borderRadius: '12px', padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div style={{ width: '44px', height: '44px', background: 'rgba(232,160,32,0.15)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '22px' }}>{s.icon}</div>
@@ -168,7 +168,7 @@ export default function Home() {
                   <div style={{ fontSize: '13px', color: '#E8A020', fontWeight: 600 }}>nuo {s.price}</div>
                   {s.priceNote && <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.45)' }}>{s.priceNote}</div>}
                 </div>
-                <a href="/#kontaktai" style={{ color: '#E8A020', fontSize: '13px', fontWeight: 600, textDecoration: 'none' }}>Plačiau →</a>
+                <a href={s.href} style={{ color: '#E8A020', fontSize: '13px', fontWeight: 600, textDecoration: 'none' }}>Plačiau →</a>
               </div>
             </div>
           ))}
@@ -188,13 +188,16 @@ export default function Home() {
               <p style={{ fontSize: '12px', color: '#666', lineHeight: 1.55, flex: 1 }}>{s.desc}</p>
               <div style={{ borderTop: '0.5px solid rgba(0,0,0,0.06)', paddingTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div style={{ fontSize: '12px', color: '#1C3A2F', fontWeight: 600 }}>nuo {s.price}</div>
-                <a href="/#kontaktai" style={{ color: '#1C3A2F', fontSize: '12px', fontWeight: 600, textDecoration: 'none' }}>Plačiau →</a>
+                <a href="/statybu-konsultavimo-paslaugos" style={{ color: '#1C3A2F', fontSize: '12px', fontWeight: 600, textDecoration: 'none' }}>Plačiau →</a>
               </div>
             </div>
           ))}
         </div>
-        <div style={{ textAlign: 'center', marginTop: '40px' }}>
-          <a href="/#kontaktai" style={{ background: '#1C3A2F', color: '#fff', padding: '14px 28px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, textDecoration: 'none', display: 'inline-block' }}>
+        <div style={{ marginTop: '40px', display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <a href="/statybu-konsultavimo-paslaugos" style={{ background: '#1C3A2F', color: '#fff', padding: '14px 28px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>
+            Visos paslaugos →
+          </a>
+          <a href="/#kontaktai" style={{ background: '#fff', color: '#1C3A2F', border: '0.5px solid rgba(0,0,0,0.12)', padding: '14px 28px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>
             📅 Gauti individualų pasiūlymą
           </a>
         </div>
@@ -248,6 +251,7 @@ export default function Home() {
           </a>
         </div>
       </section>
+
       <section id="kontaktai" className="section-pad" style={{ background: '#F5F2ED', padding: '64px 32px' }}>
         <div className="contact-grid">
           <div>

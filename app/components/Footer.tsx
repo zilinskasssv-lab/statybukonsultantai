@@ -7,7 +7,7 @@ export default function Footer() {
       </div>
       <div style={{ display: 'flex', gap: '20px' }}>
         {[
-          { label: 'Paslaugos', href: '/#paslaugos' },
+          { label: 'Paslaugos', href: '/statybu-konsultavimo-paslaugos' },
           { label: 'Projektai', href: '/#projektai' },
           { label: 'Kontaktai', href: '/#kontaktai' },
           { label: 'Privatumo politika', href: '/privatumo-politika' },
