@@ -5,19 +5,20 @@ const atsiliepimai = [
     vardas: 'Audrius',
     paslauga: 'Inžinieriaus konsultacija',
     data: '2026 m. gegužė',
-    tekstas: `ATSILIEPIMO TEKSTAS 1`,
+    tekstas: `Konkrečiai pakonsultavo pamatų-laiptų klausimais, nurodė sprendimus. Atsiuntė techninį brėžinį. Konsultacija išsklaidė mūsų dvejones dėl pamato ir leido lengviau apsispręsti, ką daryti. Labai operatyviai gavau atsakymus į rūpimus klausimus.`,
   },
   {
     vardas: 'Laurynas Gecevičius',
     paslauga: 'Konsultacija ir akto parengimas',
     data: '2025 m. balandis',
-    tekstas: `ATSILIEPIMO TEKSTAS 2`,
+    tekstas: `Puiki patirtis – rekomenduoju!
+Ieškojau specialisto, kuris galėtų profesionaliai pakonsultuoti dėl laikančiųjų sienų griovimo ir grindų betonavimo. Nuo pat pirmo laiško Paulius Žilinskas reagavo labai operatyviai, aiškiai atsakė į visus klausimus ir greitai įvertino situaciją.`,
   },
   {
     vardas: 'Arvydas',
     paslauga: 'Pastatų techninė priežiūra',
     data: '2025 m. gegužė',
-    tekstas: `ATSILIEPIMO TEKSTAS 3`,
+    tekstas: `Tobulumui ribų nėra. Bet visumoje paslaugą gavau tokią , kokios ir reikėjo. Savo srities specialistas, išsako savo argumentuotas pastabas, patarimus, objektyviai vertina situaciją. Abipusis supratimas, labai tikėtinas tolimesnis bendravimas.`,
   },
 ]
 
