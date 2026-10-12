@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Parduotuvė',
   description: 'Skaitmeniniai produktai statybų užsakovams: el. knyga „Kaip pasistatyti namą nuo A iki Z", statybų sąmatų kalkuliatorius. Praktinės žinios iš 25 metų patirties.',
-}
+  path: '/parduotuve',
+})
 
 export default function Parduotuve() {
   return (

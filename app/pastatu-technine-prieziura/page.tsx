@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Pastatų techninė priežiūra',
   description: 'Pastatų techninė priežiūra pagal STR 1.12.07:2010 visoje Lietuvoje. Kasmetinės ir sezoninės apžiūros, techninės būklės vertinimo aktai, priežiūros dokumentacija. Nuo 120 €/metus.',
-  alternates: { canonical: '/pastatu-technine-prieziura' },
-}
+  path: '/pastatu-technine-prieziura',
+})
 
 const apziuros = [
   { nr: '01', title: 'Nuolatinė stebėsena', desc: 'Kasdienis pastato būklės sekimas, leidžiantis pastebėti pokyčius anksti – dar prieš jiems tapus defektu.' },

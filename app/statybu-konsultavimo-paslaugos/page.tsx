@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Statybų konsultavimo paslaugos',
   description: 'Statybų konsultavimo paslaugos visoje Lietuvoje: techninė priežiūra, projektų valdymas, statinio statybos vadovas, sąmatų skaičiavimas, projektų auditavimas. 25 metų patirtis.',
-  alternates: { canonical: '/statybu-konsultavimo-paslaugos' },
-}
+  path: '/statybu-konsultavimo-paslaugos',
+})
 
 const pagrindines = [
   {

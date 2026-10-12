@@ -1,12 +1,14 @@
 import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import { gautiVisusStraipsnius } from '../../lib/straipsniai'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Straipsniai',
   description: 'Praktiniai patarimai apie statybų techninę priežiūrą, statybos vadovo paslaugas, pastatų priežiūrą ir statybų procesų valdymą Lietuvoje.',
-}
+  path: '/straipsniai',
+})
 
 export default function StraipsniuSarasas() {
   const straipsniai = gautiVisusStraipsnius()

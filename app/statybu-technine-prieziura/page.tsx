@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Statybų techninė priežiūra',
   description: 'Statinio statybos techninė priežiūra pagal STR visoje Lietuvoje. Licencijuoti inžinieriai, 25 metų patirtis. Rangovų kontrolė, defektų fiksavimas, paslėptų darbų aktai. Nuo 150 €/mėn.',
-  alternates: { canonical: '/statybu-technine-prieziura' },
-}
+  path: '/statybu-technine-prieziura',
+})
 
 const etapai = [
   { nr: '01', title: 'Dokumentacijos peržiūra', desc: 'Prieš pradedant darbus įvertiname projektą, rangos sutartį ir sąmatą. Ankstyvoje stadijoje pastebėtos spragos kainuoja mažiausiai.' },

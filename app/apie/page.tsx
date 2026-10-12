@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Apie mus',
   description: 'MB Statybų konsultantai – licencijuoti statybų inžinieriai su 25 metų patirtimi. Techninė priežiūra, statybos vadovas, pastatų priežiūra visoje Lietuvoje.',
-}
+  path: '/apie',
+})
 
 export default function Apie() {
   return (
