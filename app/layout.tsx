@@ -25,10 +25,13 @@ export const metadata: Metadata = {
   authors: [{ name: "MB Statybų konsultantai" }],
   creator: "MB Statybų konsultantai",
   metadataBase: new URL("https://statybukonsultantai.lt"),
+  alternates: {
+    canonical: "./",
+  },
   openGraph: {
     type: "website",
     locale: "lt_LT",
-    url: "https://statybukonsultantai.lt",
+    url: "./",
     siteName: "Statybų konsultantai",
     title: "Statybų konsultantai | Techninė priežiūra visoje Lietuvoje",
     description:
