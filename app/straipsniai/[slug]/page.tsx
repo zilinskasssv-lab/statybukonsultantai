@@ -5,6 +5,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 import { useMDXComponents } from '../../../mdx-components'
 import { gautiStraipsni, gautiVisusSlug } from '../../../lib/straipsniai'
+import { pageMetadata } from '@/lib/seo'
 
 export async function generateStaticParams() {
   return gautiVisusSlug().map((slug) => ({ slug }))
@@ -18,18 +19,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return { title: 'Straipsnis nerastas' }
   }
 
-  return {
+  return pageMetadata({
     title: straipsnis.title,
     description: straipsnis.description,
-    openGraph: {
-      type: 'article',
-      title: straipsnis.title,
-      description: straipsnis.description,
-      publishedTime: straipsnis.date,
-      authors: [straipsnis.author],
-      images: straipsnis.image ? [straipsnis.image] : ['/og-image.jpg'],
-    },
-  }
+    path: `/straipsniai/${slug}`,
+    type: 'article',
+    publishedTime: straipsnis.date,
+    image: straipsnis.image,
+  })
 }
 
 export default async function StraipsnioPuslapis({ params }: { params: Promise<{ slug: string }> }) {
