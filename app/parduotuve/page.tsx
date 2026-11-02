@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 
 export const metadata: Metadata = pageMetadata({
   title: 'Parduotuvė',
-  description: 'Skaitmeniniai produktai statybų užsakovams: el. knyga „Kaip pasistatyti namą nuo A iki Z", statybų sąmatų kalkuliatorius. Praktinės žinios iš 25 metų patirties.',
+  description: 'Skaitmeniniai produktai statyboms: atliktų darbų aktų F-2, F-3 programa rangovams, el. knyga „Kaip pasistatyti namą nuo A iki Z", statybų sąmatų kalkuliatorius.',
   path: '/parduotuve',
 })
 
@@ -26,12 +26,51 @@ export default function Parduotuve() {
       <section className="section-pad" style={{ background: '#1C3A2F', textAlign: 'center' }}>
         <h1 style={{ fontSize: '40px', fontWeight: 600, color: '#fff', marginBottom: '16px' }}>Parduotuvė</h1>
         <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.65)', maxWidth: '560px', margin: '0 auto', lineHeight: 1.7 }}>
-          Skaitmeniniai produktai statybų užsakovams ir savarankiškiems statytojams.
+          Skaitmeniniai produktai rangovams, statybų užsakovams ir savarankiškiems statytojams.
         </p>
       </section>
 
       <section className="section-pad" style={{ background: '#F5F2ED' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto' }}>
+          <div id="aktavimas" className="product-card" style={{ background: '#fff', border: '0.5px solid rgba(0,0,0,0.08)', borderRadius: '16px', overflow: 'hidden', marginBottom: '24px' }}>
+            <div style={{ background: '#1C3A2F', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px', gap: '10px', textAlign: 'center' }}>
+              <div style={{ fontSize: '40px', fontWeight: 700, color: '#E8A020', letterSpacing: '1px' }}>F-2 · F-3</div>
+              <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)' }}>+ sąskaita faktūra</div>
+              <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)', marginTop: '8px' }}>Excel failas, paruoštas spausdinti</div>
+            </div>
+            <div style={{ padding: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div>
+                <div style={{ display: 'inline-block', background: 'rgba(28,58,47,0.08)', borderRadius: '20px', padding: '4px 14px', fontSize: '11px', color: '#1C3A2F', fontWeight: 500, marginBottom: '12px' }}>Internetinė programa rangovams</div>
+                <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#1A1A1A', lineHeight: 1.3, marginBottom: '10px' }}>Atliktų darbų aktavimas</h2>
+                <p style={{ fontSize: '13px', color: '#666', lineHeight: 1.7 }}>
+                  Atliktų darbų aktas F-2, pažyma F-3 ir sąskaita faktūra per kelias minutes. Įkelkite sąmatą, nufotografuokite darbų lapą arba įveskite atliktus kiekius – ankstesnius aktus ir likučius programa skaičiuoja pati.
+                </p>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '7px' }}>
+                {[
+                  'Sąmata iš Excel, CSV ar PDF arba įvesta ranka',
+                  'Ranka surašytų darbų lapo nuotrauka atpažįstama automatiškai',
+                  'Ankstesni aktai ir likučiai skaičiuojami automatiškai',
+                  'Papildomi darbai tame pačiame akte',
+                  'PVM mokėtojams, atvirkštiniam PVM ir ne PVM mokėtojams',
+                ].map((f, i) => (
+                  <div key={i} style={{ display: 'flex', gap: '8px', fontSize: '12px', color: '#444' }}>
+                    <span style={{ color: '#1C3A2F', flexShrink: 0, fontWeight: 600 }}>✓</span>{f}
+                  </div>
+                ))}
+              </div>
+              <div style={{ borderTop: '0.5px solid rgba(0,0,0,0.08)', paddingTop: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto', flexWrap: 'wrap', gap: '12px' }}>
+                <div>
+                  <div style={{ fontSize: '28px', fontWeight: 700, color: '#1C3A2F' }}>6.99 € <span style={{ fontSize: '14px', fontWeight: 500, color: '#666' }}>/ aktas</span></div>
+                  <div style={{ fontSize: '11px', color: '#999', marginTop: '2px' }}>Be prenumeratos. Registracija ir sąmatos įkėlimas – nemokamai</div>
+                </div>
+                <a href="https://aktavimas.statybukonsultantai.lt" target="_blank" rel="noopener noreferrer" style={{ background: '#E8A020', color: '#1C3A2F', padding: '12px 20px', borderRadius: '8px', fontSize: '13px', fontWeight: 600, textDecoration: 'none', display: 'inline-block' }}>
+                  Pradėti →
+                </a>
+              </div>
+            </div>
+          </div>
+
           <div className="product-card" style={{ background: '#fff', border: '0.5px solid rgba(0,0,0,0.08)', borderRadius: '16px', overflow: 'hidden' }}>
             <div style={{ background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px' }}>
               <img src="/knyga.png" alt="El. knyga: Kaip pasistatyti namą nuo A iki Z" style={{ width: '100%', maxWidth: '220px', height: 'auto', borderRadius: '4px', boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }} />
