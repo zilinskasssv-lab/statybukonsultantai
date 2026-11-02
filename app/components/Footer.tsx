@@ -5,7 +5,7 @@ export default function Footer() {
         <div style={{ fontSize: '14px', fontWeight: 600, color: '#fff', marginBottom: '4px' }}>MB Statybų konsultantai</div>
         <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)' }}>© {new Date().getFullYear()} Visos teisės saugomos</div>
       </div>
-      <div style={{ display: 'flex', gap: '20px' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 20px' }}>
         {[
           { label: 'Paslaugos', href: '/statybu-konsultavimo-paslaugos' },
           { label: 'Projektai', href: '/#projektai' },
