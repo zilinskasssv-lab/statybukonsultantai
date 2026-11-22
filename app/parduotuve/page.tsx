@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { pageMetadata } from '@/lib/seo'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import ProductLink from '../components/ProductLink'
 
 export const metadata: Metadata = pageMetadata({
   title: 'Parduotuvė',
@@ -64,9 +65,9 @@ export default function Parduotuve() {
                   <div style={{ fontSize: '28px', fontWeight: 700, color: '#1C3A2F' }}>6.99 € <span style={{ fontSize: '14px', fontWeight: 500, color: '#666' }}>/ aktas</span></div>
                   <div style={{ fontSize: '11px', color: '#999', marginTop: '2px' }}>Be prenumeratos. Registracija ir sąmatos įkėlimas – nemokamai</div>
                 </div>
-                <a href="https://aktavimas.statybukonsultantai.lt" target="_blank" rel="noopener noreferrer" style={{ background: '#E8A020', color: '#1C3A2F', padding: '12px 20px', borderRadius: '8px', fontSize: '13px', fontWeight: 600, textDecoration: 'none', display: 'inline-block' }}>
+                <ProductLink produktas="aktavimas" href="https://aktavimas.statybukonsultantai.lt" target="_blank" rel="noopener noreferrer" style={{ background: '#E8A020', color: '#1C3A2F', padding: '12px 20px', borderRadius: '8px', fontSize: '13px', fontWeight: 600, textDecoration: 'none', display: 'inline-block' }}>
                   Pradėti →
-                </a>
+                </ProductLink>
               </div>
             </div>
           </div>
@@ -101,9 +102,9 @@ export default function Parduotuve() {
                   <div style={{ fontSize: '28px', fontWeight: 700, color: '#1C3A2F' }}>14.99 €</div>
                   <div style={{ fontSize: '11px', color: '#999', marginTop: '2px' }}>Momentinis pristatymas el. paštu</div>
                 </div>
-                <a href="https://payhip.com/b/Kium5" target="_blank" rel="noopener noreferrer" style={{ background: '#E8A020', color: '#1C3A2F', padding: '12px 20px', borderRadius: '8px', fontSize: '13px', fontWeight: 600, textDecoration: 'none', display: 'inline-block' }}>
+                <ProductLink produktas="knyga" href="https://payhip.com/b/Kium5" target="_blank" rel="noopener noreferrer" style={{ background: '#E8A020', color: '#1C3A2F', padding: '12px 20px', borderRadius: '8px', fontSize: '13px', fontWeight: 600, textDecoration: 'none', display: 'inline-block' }}>
                   Įsigyti dabar →
-                </a>
+                </ProductLink>
               </div>
             </div>
           </div>
@@ -114,9 +115,9 @@ export default function Parduotuve() {
               <div style={{ fontSize: '14px', fontWeight: 600, color: '#fff', marginBottom: '4px' }}>Statybų sąmatų kalkuliatorius</div>
               <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>Suveskite namo parametrus ir gaukite detalią sąmatą PDF formatu.</div>
             </div>
-            <a href="https://prosamata.lt" target="_blank" rel="noopener noreferrer" style={{ background: 'rgba(232,160,32,0.15)', color: '#E8A020', border: '0.5px solid rgba(232,160,32,0.3)', padding: '10px 18px', borderRadius: '7px', fontSize: '13px', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+            <ProductLink produktas="prosamata" href="https://prosamata.lt" target="_blank" rel="noopener noreferrer" style={{ background: 'rgba(232,160,32,0.15)', color: '#E8A020', border: '0.5px solid rgba(232,160,32,0.3)', padding: '10px 18px', borderRadius: '7px', fontSize: '13px', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>
               Išbandyti →
-            </a>
+            </ProductLink>
           </div>
         </div>
       </section>
