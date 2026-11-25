@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'Straipsniai', href: '/straipsniai' },
   { label: 'Apie', href: '/apie' },
   { label: 'Parduotuvė', href: '/parduotuve' },
+  { label: 'Aktavimas', href: '/aktavimas' },
   { label: 'Kontaktai', href: '/#kontaktai' },
 ]
 
@@ -21,7 +22,11 @@ export default function Nav() {
         .nav-links { display: flex; gap: 24px; flex: 1; justify-content: center; }
         .nav-right-tel { display: flex; }
         .hamburger { display: none; }
-        @media (max-width: 860px) {
+        @media (max-width: 1300px) {
+          .nav-links { gap: 16px; }
+          .nav-wrap { padding: 8px 20px !important; }
+        }
+        @media (max-width: 1100px) {
           .nav-links { display: none; }
           .nav-right-tel { display: none; }
           .hamburger { display: flex !important; }
